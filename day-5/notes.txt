@@ -1,0 +1,6 @@
+server ka outcome indicate k liye status code use karte h
+
+Post - 201
+Get - 200
+Delete - 202
+Patch - 200

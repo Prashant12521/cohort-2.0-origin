@@ -23,7 +23,7 @@ app.get("/notes", (req, res) => {
 app.delete("/notes/:index", (req, res) => {
   delete notes[req.params.index];
 
-  res.status(202).json({
+  res.status(204).json({
     message: "Note deleted successfully",
   });
 });

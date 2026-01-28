@@ -1,0 +1,5 @@
+CLUSTER => storage + processor
+Database
+
+Cloud => Mongodb Atlas
+

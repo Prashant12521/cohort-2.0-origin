@@ -1,0 +1,13 @@
+Schema => database ko batana padta h ki ham kis format me data store karne wale h, is process ko bolte h schema create karna or short me schema, jaise ham yahan niche diye gaye format me notes data store karenge
+
+note =>
+
+{
+  title - string,
+  description - string
+}
+
+Model => database me agar data create karna, update karna, delete karna kuch bhi operation database me perform karna h to use hota h model, model k bina ek bhi operation perform nahi hoga
+
+Schema -> Format batane k liye
+Model -> Operation perform karne k liye

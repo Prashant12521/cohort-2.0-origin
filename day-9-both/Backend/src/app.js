@@ -1,7 +1,10 @@
 const express = require("express");
 const app = express();
-app.use(express.json());
 const noteModel = require("./models/notes.model");
+const cors = require('cors')
+
+app.use(cors())
+app.use(express.json());
 
 // POST - /api/notes
 // create new note and save data in mongoDB

@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.notes {
+  padding-block: 2rem;
+  padding-inline: 3rem;
+  color: white;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+}
+
+.note {
+  background-color: #544f4f;
+  width: fit-content;
+  padding-block: 1rem;
+  padding-inline: 2rem;
+  border-radius: 1rem;
+}
+
+

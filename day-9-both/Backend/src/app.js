@@ -1,10 +1,14 @@
 const express = require("express");
-const app = express();
 const noteModel = require("./models/notes.model");
-const cors = require('cors')
+const cors = require("cors");
+const path = require("path");
 
-app.use(cors())
+const app = express();
+app.use(cors());
 app.use(express.json());
+// http://localhost:3000/assets/index-BiBnUL76.js
+// http://localhost:3000/assets/index-D8ye7ZZA.css
+app.use(express.static('./public'))
 
 // POST - /api/notes
 // create new note and save data in mongoDB
@@ -61,8 +65,16 @@ app.patch("/api/notes/:id", async (req, res) => {
   await noteModel.findByIdAndUpdate(id, { description });
 
   res.status(200).json({
-    message: 'note updated successfully'
-  })
+    message: "note updated successfully",
+  });
+});
+
+// wild card
+
+console.log(__dirname)
+
+app.use("*name", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "/public/index.html"));
 });
 
 module.exports = app;

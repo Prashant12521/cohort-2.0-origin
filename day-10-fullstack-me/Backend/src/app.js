@@ -7,6 +7,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// express.static() = browser ko directly frontend files dene wala middleware.
+app.use(express.static('./public'))
+
 app.post("/api/notes", async (req, res) => {
   const { title, description } = req.body;
 

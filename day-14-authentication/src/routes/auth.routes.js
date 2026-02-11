@@ -50,7 +50,7 @@ authRouter.get("/get-me", async (req, res) => {
 
   const user = await userModel.findById(decoded.id);
 
-  res.json({
+  res.status(201).json({
     name: user.name,
     email: user.email,
   });

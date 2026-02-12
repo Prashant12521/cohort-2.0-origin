@@ -10,6 +10,13 @@ POST ==>
 - like posts (collection types - unmount)
 - save post
 
+{
+  caption:string,
+  img_url:string,
+  user:userId,
+  createdAt: Date-time,
+}
+
 Users ==>
 - followers
 - following

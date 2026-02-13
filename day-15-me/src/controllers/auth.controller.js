@@ -13,7 +13,7 @@ async function registerController(req, res) {
     return res.status(409).json({
       message:
         "User already exists with this " +
-        (isUserExists.email ? "email" : "username"),
+        (isUserExists.email == email ? "email" : "username"),
     });
   }
 

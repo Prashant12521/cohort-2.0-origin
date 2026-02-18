@@ -1,0 +1,22 @@
+const mongoose = require("mongoose");
+
+const likeSchema = new mongoose.Schema(
+  {
+    post: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref:'posts',
+      required: [true, "post is required to like it"],
+    },
+    user: {
+      type: String,
+      required: [true, "username is required to like a post"],
+    },
+  },
+  { timestamps: true },
+);
+
+likeSchema.index({ postId: 1, user: 1 }, { unique: true });
+
+const likeModel = mongoose.model("likes", likeSchema);
+
+module.exports = likeModel;

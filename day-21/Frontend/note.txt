@@ -1,0 +1,7 @@
+UI -> UI dikhana user ko or navigate karna
+
+Hook -> Manage karna state and Api layer
+
+State -> State Manage (loading, user, post list, error)
+
+API

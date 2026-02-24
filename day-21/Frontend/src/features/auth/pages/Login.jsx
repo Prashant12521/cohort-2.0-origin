@@ -3,7 +3,7 @@ import "../style/form.scss";
 import { Link, useNavigate } from "react-router";
 import { useAuth } from "../hooks/useAuth";
 
-function Login() {
+const Login =() => {
   const { user, loading, handleLogin } = useAuth();
 
   const [username, setUsername] = useState("");

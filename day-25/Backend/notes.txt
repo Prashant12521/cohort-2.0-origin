@@ -1,0 +1,7 @@
+why not we use REDIS as primary database
+
+=> costly - use karta h RAM
+=> query nahi kar sakte - key value pair me store karta h aur value string type me hoti h
+
+
+MongoDb = BSON

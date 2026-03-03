@@ -5,6 +5,7 @@ const authMiddleWare = require('../middleware/auth.middleware')
 const router = Router()
 
 router.post('/register', authController.registerUser)
+
 router.post('/login', authController.loginUser)
 
 router.get('/get-me', authMiddleWare.authUser, authController.getMe)

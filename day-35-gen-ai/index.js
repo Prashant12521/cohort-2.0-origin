@@ -4,19 +4,17 @@ import { ChatMistralAI } from "@langchain/mistralai";
 import { HumanMessage, tool, createAgent } from "langchain";
 import { sendEmail } from "./mail.service.js";
 import * as z from "zod";
+import { tavilyTool } from "./tavily.service.js";
 
-const emailTool = tool(
-  sendEmail, 
-  {
-    name: "emailTool",
-    description: "Use this tool to send an email",
-    schema: z.object({
-      to: z.string().describe("The recipient's email address"),
-      html: z.string().describe("The HTML content of the email"),
-      subject: z.string().describe("The subject of the email"),
-    }),
-  }
-);
+const emailTool = tool(sendEmail, {
+  name: "emailTool",
+  description: "Use this tool to send an email",
+  schema: z.object({
+    to: z.string().describe("The recipient's email address"),
+    html: z.string().describe("The HTML content of the email"),
+    subject: z.string().describe("The subject of the email"),
+  }),
+});
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -29,8 +27,8 @@ const model = new ChatMistralAI({
 
 const agent = createAgent({
   model,
-  tools: [ emailTool ]
-})
+  tools: [emailTool, tavilyTool],
+});
 
 const messages = [];
 
@@ -41,8 +39,9 @@ while (true) {
 
   const response = await agent.invoke({ messages });
 
-  messages.push(response.messages[ response.messages.length - 1 ]);
+  messages.push(response.messages[response.messages.length - 1]);
 
-  console.log(`\x1b[34m[AI]\x1b[0m ${response.messages[response.messages.length - 1].content}`);
+  console.log(
+    `\x1b[34m[AI]\x1b[0m ${response.messages[response.messages.length - 1].content}`,
+  );
 }
-
